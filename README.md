@@ -40,3 +40,24 @@ pizzaria-delivery/
 │ ├── pizza3.png
 │ └── ...
 └── README.md # 
+
+
+
+## 🌐 Demo Online
+
+[🔗 Acesse a Pizzaria Online](https://lucasalberto07.github.io/pizzaria-online)
+
+## 🖥 Instalação Local
+
+```bash
+# Clone o repositório
+git clone https://github.com/LucasAlberto07/pizzaria-online.git
+
+# Entre na pasta
+cd pizzaria-online
+
+# Abra no navegador
+open index.html
+# ou
+start index.html
+# ou simplesmente arraste o arquivo para o navegador
