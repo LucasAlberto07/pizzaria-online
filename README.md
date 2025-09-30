@@ -28,19 +28,17 @@ Um site completo de pizzaria delivery com carrinho de compras integrado ao Whats
 - **JavaScript Vanilla** - Interatividade e lógica
 - **Git** - Controle de versão
 
-## 📦 Estrutura do Projeto
 pizzaria-delivery/
-├── index.html # Página principal
-├── style.css # Estilos principais
-├── script.js # Lógica JavaScript
-├── pizzas.js # Catálogo de produtos
-├── images/ # Imagens das pizzas
-│ ├── pizza.png
-│ ├── pizza2.png
-│ ├── pizza3.png
-│ └── ...
-└── README.md # 
-
+├── index.html          # Página principal
+├── style.css           # Estilos principais
+├── script.js           # Lógica JavaScript
+├── pizzas.js           # Catálogo de produtos
+├── images/             # Imagens das pizzas
+│   ├── pizza.png
+│   ├── pizza2.png
+│   ├── pizza3.png
+│   └── ...
+└── README.md           # Documentação do projeto
 
 
 ## 🌐 Demo Online
