@@ -1,6 +1,7 @@
 let cart = [];
 let modalQt = 1;
 let modalKey = 0;
+let customerAddress = null;
 
 // Atalhos para querySelector
 const c = (el) => document.querySelector(el);
@@ -55,7 +56,6 @@ setTimeout(() => {
     
     if(pizzasCarregadas.length === 0) {
         console.error('ERRO: Nenhuma pizza foi renderizada!');
-        // Criar elemento de erro visível
         const erroDiv = document.createElement('div');
         erroDiv.style.background = '#ff4444';
         erroDiv.style.color = 'white';
@@ -67,7 +67,7 @@ setTimeout(() => {
     }
 }, 100);
 
-// Fechar modal
+// Fechar modal da pizza
 function closeModal() {
   c('.pizzaWindowArea').style.opacity = 0;
   setTimeout(() => {
@@ -181,13 +181,54 @@ function updateCart() {
   }
 }
 
-// Finalizar pedido no WhatsApp
+// Modal de endereço
 c('.cart--finalizar').addEventListener('click', () => {
   if(cart.length === 0) {
     alert('Seu carrinho está vazio!');
     return;
   }
   
+  showAddressModal();
+});
+
+function showAddressModal() {
+  c('.addressModalArea').style.display = 'flex';
+  setTimeout(() => {
+    c('.addressModalArea').style.opacity = 1;
+  }, 200);
+}
+
+function closeAddressModal() {
+  c('.addressModalArea').style.opacity = 0;
+  setTimeout(() => {
+    c('.addressModalArea').style.display = 'none';
+  }, 500);
+}
+
+c('.cancelAddress').addEventListener('click', () => {
+  closeAddressModal();
+});
+
+c('#addressForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const addressData = {
+    rua: c('#rua').value,
+    numero: c('#numero').value,
+    bairro: c('#bairro').value,
+    cidade: c('#cidade').value,
+    complemento: c('#complemento').value,
+    referencia: c('#referencia').value
+  };
+  
+  customerAddress = addressData;
+  sendWhatsAppOrder();
+  closeAddressModal();
+  
+  c('#addressForm').reset();
+});
+
+function sendWhatsAppOrder() {
   let msg = "🍕 *PEDIDO DE PIZZAS* 🍕\n\n";
   msg += "*Itens do pedido:*\n";
   
@@ -203,12 +244,32 @@ c('.cart--finalizar').addEventListener('click', () => {
     return total + (pizzaItem.price[item.size] * item.qt);
   }, 0);
 
+  let desconto = subtotal * 0.1;
+  let total = subtotal - desconto;
+
   msg += `\n*Subtotal:* R$ ${subtotal.toFixed(2)}`;
-  msg += `\n*Desconto (10%):* R$ ${(subtotal * 0.1).toFixed(2)}`;
-  msg += `\n*Total:* R$ ${(subtotal * 0.9).toFixed(2)}`;
+  msg += `\n*Desconto (10%):* R$ ${desconto.toFixed(2)}`;
+  msg += `\n*Total:* R$ ${total.toFixed(2)}`;
+  
+  msg += `\n\n📍 *ENDEREÇO DE ENTREGA:*`;
+  msg += `\n*Rua:* ${customerAddress.rua}, ${customerAddress.numero}`;
+  msg += `\n*Bairro:* ${customerAddress.bairro}`;
+  msg += `\n*Cidade:* ${customerAddress.cidade}`;
+  if(customerAddress.complemento) {
+    msg += `\n*Complemento:* ${customerAddress.complemento}`;
+  }
+  if(customerAddress.referencia) {
+    msg += `\n*Ponto de referência:* ${customerAddress.referencia}`;
+  }
+  
   msg += `\n\nObrigado! 🍕`;
 
-  window.open(`https://wa.me/5599999999999?text=${encodeURIComponent(msg)}`, '_blank');
-});
+  // SUBSTITUA pelo número real da pizzaria (formato: 5511999999999)
+  const phoneNumber = '5571988870028';
+  window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+  
+  cart = [];
+  updateCart();
+}
 
 console.log('=== PIZZARIA CONFIGURADA ===');

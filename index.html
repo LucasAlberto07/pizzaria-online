@@ -13,7 +13,7 @@
   </header>
 
   <main>
-    <h1>Monte seu Cardápio 🍕</h1>
+    <h1>Araújo Pizzas 🍕</h1>
     <div class="pizza-area"></div>
   </main>
 
@@ -63,7 +63,7 @@
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal de Pizza -->
   <div class="pizzaWindowArea">
     <div class="pizzaWindowBody">
       <div class="pizzaBig"><img src="" /></div>
@@ -89,6 +89,43 @@
         <div class="pizzaInfo--cancelButton">Cancelar</div>
         <div class="pizzaInfo--cancelMobileButton">Cancelar</div>
       </div>
+    </div>
+  </div>
+
+  <!-- Modal de Endereço -->
+  <div class="addressModalArea">
+    <div class="addressModal">
+      <h2>Informe seu endereço de entrega</h2>
+      <form id="addressForm">
+        <div class="form-group">
+          <label for="rua">Rua:</label>
+          <input type="text" id="rua" name="rua" required>
+        </div>
+        <div class="form-group">
+          <label for="numero">Número:</label>
+          <input type="text" id="numero" name="numero" required>
+        </div>
+        <div class="form-group">
+          <label for="bairro">Bairro:</label>
+          <input type="text" id="bairro" name="bairro" required>
+        </div>
+        <div class="form-group">
+          <label for="cidade">Cidade:</label>
+          <input type="text" id="cidade" name="cidade" required>
+        </div>
+        <div class="form-group">
+          <label for="complemento">Complemento (opcional):</label>
+          <input type="text" id="complemento" name="complemento">
+        </div>
+        <div class="form-group">
+          <label for="referencia">Ponto de referência (opcional):</label>
+          <input type="text" id="referencia" name="referencia">
+        </div>
+        <div class="modal-buttons">
+          <button type="button" class="cancelAddress">Cancelar</button>
+          <button type="submit" class="confirmAddress">Confirmar Pedido</button>
+        </div>
+      </form>
     </div>
   </div>
 

@@ -338,6 +338,103 @@ h1 {
     background-color:#35af4a;
 }
 
+/* Modal de Endereço */
+.addressModalArea {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: all ease .3s;
+}
+
+.addressModal {
+    background-color: #FFF;
+    border-radius: 10px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.addressModal h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Hepta Slab', Helvetica, Arial;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    font-family: 'Lato', Helvetica, Arial;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Lato', Helvetica, Arial;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #399ade;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    gap: 15px;
+}
+
+.modal-buttons button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Lato', Helvetica, Arial;
+    transition: all ease .2s;
+}
+
+.cancelAddress {
+    background-color: #e74c3c;
+    color: white;
+    flex: 1;
+}
+
+.cancelAddress:hover {
+    background-color: #c0392b;
+}
+
+.confirmAddress {
+    background-color: #48d05f;
+    color: white;
+    flex: 2;
+}
+
+.confirmAddress:hover {
+    background-color: #35af4a;
+}
+
 @media (max-width:1000px) {
     .pizza-area {
         grid-template-columns: repeat(2, 1fr);
@@ -427,5 +524,18 @@ h1 {
     }
     .pizzaInfo--cancelMobileButton {
         display:block;
+    }
+    
+    .modal-buttons {
+        flex-direction: column;
+    }
+    
+    .modal-buttons button {
+        width: 100%;
+    }
+    
+    .addressModal {
+        margin: 20px;
+        padding: 20px;
     }
 }

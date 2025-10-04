@@ -26,7 +26,7 @@ let pizzaJson = [
     {
         id: 4,
         name: 'Portuguesa',
-        img: 'images/placeholder.png',
+        img: 'images/pizza4.png',
         price: [29.00, 32.00, 34.00],
         sizes: ['320g', '530g', '860g'],
         description: 'Presunto, ovo, cebola, azeitona e mussarela.'
@@ -34,7 +34,7 @@ let pizzaJson = [
     {
         id: 5,
         name: 'Quatro Queijos',
-        img: 'images/placeholder.png',
+        img: 'images/pizza5.png',
         price: [31.00, 34.00, 36.00],
         sizes: ['320g', '530g', '860g'],
         description: 'Mussarela, parmesão, gorgonzola e catupiry.'
@@ -42,7 +42,7 @@ let pizzaJson = [
     {
         id: 6,
         name: 'Bacon',
-        img: 'images/placeholder.png',
+        img: 'images/pizza6.png',
         price: [28.00, 31.00, 33.00],
         sizes: ['320g', '530g', '860g'],
         description: 'Muito bacon crocante com queijo mussarela.'
@@ -50,7 +50,7 @@ let pizzaJson = [
     {
         id: 7,
         name: 'Vegetariana',
-        img: 'images/placeholder.png',
+        img: 'images/pizza7.png',
         price: [24.00, 27.00, 29.00],
         sizes: ['320g', '530g', '860g'],
         description: 'Pizza leve com brócolis, milho, ervilha e palmito.'
@@ -58,7 +58,7 @@ let pizzaJson = [
     {
         id: 8,
         name: 'Carne Seca com Catupiry',
-        img: 'images/placeholder.png',
+        img: 'images/pizza8.png',
         price: [32.00, 35.00, 37.00],
         sizes: ['320g', '530g', '860g'],
         description: 'Carne seca desfiada com catupiry.'
@@ -66,31 +66,31 @@ let pizzaJson = [
     {
         id: 9,
         name: 'Atum',
-        img: 'images/placeholder.png',
+        img: 'images/pizza9.jpg',
         price: [26.00, 29.00, 31.00],
         sizes: ['320g', '530g', '860g'],
         description: 'Atum com cebola e azeitona.'
     },
     {
         id: 10,
-        name: 'Chocolate',
-        img: 'images/placeholder.png',
+        name: 'Moda',
+        img: 'images/pizza10.png',
         price: [20.00, 23.00, 25.00],
         sizes: ['320g', '530g', '860g'],
         description: 'Pizza doce de chocolate ao leite.'
     },
     {
         id: 11,
-        name: 'Romeu e Julieta',
-        img: 'images/placeholder.png',
+        name: 'Frango tropical',
+        img: 'images/pizza11.png',
         price: [21.00, 24.00, 26.00],
         sizes: ['320g', '530g', '860g'],
         description: 'Queijo mussarela com goiabada derretida.'
     },
     {
         id: 12,
-        name: 'Banana com Canela',
-        img: 'images/placeholder.png',
+        name: 'Milho',
+        img: 'images/pizza12.png',
         price: [19.00, 22.00, 24.00],
         sizes: ['320g', '530g', '860g'],
         description: 'Pizza doce de banana caramelizada com canela.'
