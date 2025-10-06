@@ -153,6 +153,14 @@ function updateCart() {
       cartItem.querySelector('img').src = pizzaItem.img;
       cartItem.querySelector('.cart--item-nome').innerHTML = pizzaName;
       cartItem.querySelector('.cart--item--qt').innerHTML = cart[i].qt;
+      
+      // Remover event listeners antigos e adicionar novos
+      let menosBtn = cartItem.querySelector('.cart--item-qtmenos');
+      let maisBtn = cartItem.querySelector('.cart--item-qtmais');
+      
+      menosBtn.replaceWith(menosBtn.cloneNode(true));
+      maisBtn.replaceWith(maisBtn.cloneNode(true));
+      
       cartItem.querySelector('.cart--item-qtmenos').addEventListener('click', () => {
         if(cart[i].qt > 1) {
           cart[i].qt--;
@@ -161,6 +169,7 @@ function updateCart() {
         }
         updateCart();
       });
+      
       cartItem.querySelector('.cart--item-qtmais').addEventListener('click', () => {
         cart[i].qt++;
         updateCart();
@@ -178,6 +187,10 @@ function updateCart() {
 
   } else {
     c('aside').classList.remove('show');
+    c('.cart').innerHTML = '<div class="cart--empty">Seu carrinho está vazio</div>';
+    c('.subtotal span:last-child').innerHTML = 'R$ 0,00';
+    c('.desconto span:last-child').innerHTML = 'R$ 0,00';
+    c('.total span:last-child').innerHTML = 'R$ 0,00';
   }
 }
 
@@ -264,12 +277,22 @@ function sendWhatsAppOrder() {
   
   msg += `\n\nObrigado! 🍕`;
 
-  // SUBSTITUA pelo número real da pizzaria (formato: 5511999999999)
   const phoneNumber = '5571988870028';
   window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(msg)}`, '_blank');
   
   cart = [];
   updateCart();
 }
+
+// Fechar carrinho ao clicar fora (apenas mobile)
+document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 840) {
+        if (c('aside').classList.contains('show') && 
+            !e.target.closest('aside') && 
+            !e.target.closest('.menu-openner')) {
+            c('aside').classList.remove('show');
+        }
+    }
+});
 
 console.log('=== PIZZARIA CONFIGURADA ===');
